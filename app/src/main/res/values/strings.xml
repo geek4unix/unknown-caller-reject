@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">UCR</string>
+    <string name="action_settings">Settings</string>
+    <string name="toggle_description">Tap the toggle above to change status</string>
+    <string name="allow_reject">ALLOW_REJECT</string>
+    <string name="ALLOW_REJECT_DESCRIPTION">Custom Permission to allow rejection of calls</string>
+    <string name="notification_title">UCR active!</string>
+    <string name="notification_subject">UCR is active and is currently blocking calls with unknown and private numbers.</string>
+    <string name="banner_ad_unit_id">ca-app-pub-1390372936294144/2736173715</string>
+</resources>
