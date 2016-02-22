@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">UCR</string>
+    <string name="help_text">This app ONLY rejects callers who do not display a phone number. So calls from PRIVATE and UNKNOWN callers are silently rejected. All other calls, including those from strangers are allowed.</string>
     <string name="action_settings">Settings</string>
     <string name="toggle_description">Tap the toggle above to change status</string>
     <string name="allow_reject">ALLOW_REJECT</string>

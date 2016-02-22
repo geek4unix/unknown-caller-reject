@@ -45,13 +45,7 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".TestService"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="com.namitservices.ucr.ALLOW_REJECT"
-            android:label="@string/allow_reject"
-            android:description="@string/ALLOW_REJECT_DESCRIPTION" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
             android:name="com.google.android.gms.version"

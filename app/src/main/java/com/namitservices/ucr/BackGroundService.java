@@ -19,14 +19,14 @@ import java.lang.reflect.Method;
 /**
  * Created by neil on 09/12/2015.
  */
-public class TestService extends Service {
+public class BackGroundService extends Service {
 
-    final static String TAG = "TestService";
+    final static String TAG = "BackGroundService";
 
     int mStartMode; // will help us deal with exiting
 
     IBinder mBinder;  // interface that clients bind
-    boolean mAllowRebind; // indicates wether onRebind should be used
+    boolean mAllowRebind; // indicates whether onRebind should be used
 
     public boolean ucrnotification(boolean state) {
 
@@ -159,7 +159,7 @@ public class TestService extends Service {
 
         // end onCreate
         }
-    };
+    }
     /**
      * A client is binding to the service with bindService()
      */

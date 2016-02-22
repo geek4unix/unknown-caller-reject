@@ -14,7 +14,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
     @Override public void onReceive(Context context,Intent intent){
         try{
-            context.startService(new Intent(context,TestService.class));
+            context.startService(new Intent(context,BackGroundService.class));
             Log.i(TAG,"Starting Service ConnectivityListener");
         }catch(Exception e){
             Log.e(TAG,e.toString());

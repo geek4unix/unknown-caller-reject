@@ -45,4 +45,21 @@
             android:layout_centerHorizontal="true"
             android:autoText="false" />
 
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:layout_gravity="center_horizontal"
+            android:fadingEdge="horizontal"
+            android:text="@string/help_text"
+            android:id="@+id/help_text"
+        android:layout_below="@+id/toggle_description"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#b9bafc"
+        android:background="#5c72b8"
+        android:autoText="true" />
+
 </RelativeLayout>

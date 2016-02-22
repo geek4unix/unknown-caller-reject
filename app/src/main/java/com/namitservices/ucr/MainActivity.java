@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
 // build notification
 
-        if (state == true) {
+        if (state) {
 
             Notification n = new Notification.Builder(this)
                     .setContentTitle("UCR Active")
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
             Log.i(TAG, "Service is NOT present");
 
             if (ToggleStatus.isChecked() && !isMyServiceRunning()) {
-                startService(new Intent(getApplicationContext(), TestService.class));
+                startService(new Intent(getApplicationContext(), BackGroundService.class));
                 if (isMyServiceRunning()) {
                     Log.i(TAG, "Service needed to be restarted and is NOW running ...");
                     // Set notification
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     ucrnotification(true);
                 }
             } else if (!ToggleStatus.isChecked() && isMyServiceRunning()) {
-                stopService(new Intent(getApplicationContext(), TestService.class));
+                stopService(new Intent(getApplicationContext(), BackGroundService.class));
                 if (!isMyServiceRunning()) {
                     Log.i(TAG, "Service needed to be stopped ...");
                     // Set notification
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 if (toggleButton.isChecked()) {
 
                     Log.i(TAG, "Toggle pressed = now ON ...");
-                    startService(new Intent(getApplicationContext(), TestService.class));
+                    startService(new Intent(getApplicationContext(), BackGroundService.class));
 
                     if (isMyServiceRunning())
                         Log.i(TAG, "Attempt to start service - SUCCESS ! ");
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Log.i(TAG, "Toggle pressed = now OFF ...");
 
-                    boolean stopResult = stopService(new Intent(getApplicationContext(), TestService.class));
+                    boolean stopResult = stopService(new Intent(getApplicationContext(), BackGroundService.class));
 
                     if (stopResult) {
                         Log.i(TAG, "Service was stopped");
@@ -217,7 +217,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean isMyServiceRunning() {
         ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-            if ("com.namitservices.ucr.TestService".equals(service.service.getClassName())) {
+            if ("com.namitservices.ucr.BackGroundService".equals(service.service.getClassName())) {
                 return true;
             }
         }
