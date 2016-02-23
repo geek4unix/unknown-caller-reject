@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
                     if (isMyServiceRunning())
                         Log.i(TAG, "Attempt to start service - SUCCESS ! ");
                     else
-                        Log.i(TAG, "Attempt to start service - FAILED :/ ");
+                        Log.e(TAG, "Attempt to start service - FAILED :/ ");
 
                     Log.i(TAG, "Setting toggle state (ON) from Sharedprefs");
 
