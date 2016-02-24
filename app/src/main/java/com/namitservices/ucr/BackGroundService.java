@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.os.Binder;
 import android.os.IBinder;
+import android.provider.Settings;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -116,22 +117,22 @@ public class BackGroundService extends Service {
 
 
                         AudioManager am;
-                        am= (AudioManager) getBaseContext().getSystemService(Context.AUDIO_SERVICE);
+                        am = (AudioManager) getBaseContext().getSystemService(Context.AUDIO_SERVICE);
                         Log.i(TAG,"Getting the current ringer mode ...");
                         Log.i(TAG,"Silencing the ringer ...");
 
                         // Get current ringtone,vibrate mode
 
-                        String CURRENT_VIBRATE = am.EXTRA_RINGER_MODE.toString();
+                        int CURRENT_VIBRATE = Settings.System.getInt(getApplicationContext().getContentResolver(), "vibrate_when_ringing", 0);
                         Log.i(TAG, String.format("CURRENT_VIBRATE: %s", CURRENT_VIBRATE));
                         Integer CURRENT_RING = am.getRingerMode();
                         // Set ring tone volume to silent
                         am.setRingerMode(AudioManager.RINGER_MODE_SILENT);
-
+                        am.setVibrateSetting(AudioManager.VIBRATE_TYPE_RINGER, AudioManager.VIBRATE_SETTING_OFF);
                         // TODO disable vibration (if enabled) before call is disconnected
                         // HERE
 
-                        Log.i(TAG,"calling disconnectCall() ... ");
+                        Log.i(TAG, "calling disconnectCall() ... ");
                         disconnectCall();
 
                         Log.i(TAG,"Replacing the previos (CURRENT_RING) ringer mode...");
@@ -140,6 +141,7 @@ public class BackGroundService extends Service {
 
                         Log.i(TAG,"Current vibrate setting is: "+CURRENT_VIBRATE);
                         // TODO - replace vibrate mode as captured in CURRENT_VIBRATE
+                        am.setVibrateSetting(CURRENT_VIBRATE,0);
                         // Log CURRENT_VIBRATE string ...
 
                         String RejectMessage="Caller "+" - "+caller_number+" - Call rejected";
